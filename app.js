@@ -8,12 +8,12 @@ const order = {
 // Refactor the code below:
 
 checkInventory(order)
-    .then((resolvedValueArray) => {
-        processPayment(resolvedValueArray)
-            .then((resolvedValueArray) => {
-                shipOrder(resolvedValueArray)
-                    .then((successMessage) => {
-                        console.log(successMessage);
-                    });
-            });
-    });
+.then((resolvedValueArray) => {
+  return processPayment(resolvedValueArray);
+})
+.then((resolvedValueArray) => {
+  return shipOrder(resolvedValueArray);
+})
+.then((successMessage) => {
+  console.log(successMessage);
+});
